@@ -6,6 +6,7 @@ namespace DAL.Entities;
 /// <summary>
 /// владелец компании
 /// </summary>
+[Serializable]
 public class CompanyOwner:Person
 {
     public Company Company { get; set; }

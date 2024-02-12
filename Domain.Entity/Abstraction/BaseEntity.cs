@@ -1,5 +1,6 @@
 ﻿namespace DAL.Abstraction;
 
+[Serializable]
 public abstract class BaseEntity
 {
     public BaseEntity(int id)

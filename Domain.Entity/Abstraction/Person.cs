@@ -3,6 +3,7 @@
 /// <summary>
 /// класс описывает человека
 /// </summary>
+[Serializable]
 public abstract class Person: BaseEntity,IMyCloneable<Person>, ICloneable
 {
     public Person(int id,string firstName, string lastName,int age):base(id) 

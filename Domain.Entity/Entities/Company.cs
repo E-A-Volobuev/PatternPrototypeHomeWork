@@ -1,6 +1,7 @@
 ﻿using DAL.Abstraction;
 namespace DAL.Entities;
 
+[Serializable]
 public class Company : BaseEntity
 {
     public string Name { get; set; }

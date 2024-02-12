@@ -1,12 +1,14 @@
-﻿using DAL.Abstraction;
-using DAL.Entities;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using PatternPrototypeHomeWork;
+using ServicesLayer.Services.Abstractions;
+using ServicesLayer.Services.Implementations;
 
-Company company = new Company(1, "Microsoft", 2);
-Person employer = new Employer(1, "Иван", "Иванов",30, company);
-Person owner = new CompanyOwner(2,company, "Петр", "Петров",40);
-Person employerClone=employer.CustomClone();
-Person ownerClone = owner.CustomClone();
+HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
+builder.Services.AddHostedService<Start>();
+builder.Services.AddScoped<IPersonBynaryCloneService, PersonBynaryCloneService>();
 
-object employerObjectClone=employerClone.Clone();
-object ownerObjectClone = ownerClone.Clone();
+using IHost host = builder.Build();
+
+await host.RunAsync();
 
